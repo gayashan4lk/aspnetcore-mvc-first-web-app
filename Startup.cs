@@ -1,3 +1,4 @@
+using BethanysPieShop.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -26,6 +27,11 @@ namespace BethanysPieShop
         {
             services.AddRazorPages();
             //services.AddControllersWithViews();
+            //services.AddTransient();
+            //services.AddSingleton();
+
+            services.AddScoped<IPieRepository, MockPieRepository>();
+            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
